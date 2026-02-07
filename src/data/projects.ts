@@ -1,3 +1,5 @@
+import { cldImage } from '../utils/cloudinary';
+
 export type Project = {
   slug: string;
   title: string;
@@ -5,7 +7,11 @@ export type Project = {
   tags: string[];
   repoUrl?: string;
   liveUrl?: string;
-  image?: string;
+  // ✅ new
+  role?: string;
+  year?: number;
+  highlights?: string[];
+  images?: string[]; // screenshot URLs
 };
 
 export const projects: Project[] = [
@@ -13,17 +19,35 @@ export const projects: Project[] = [
     slug: 'photography-portfolio',
     title: 'Thomas Woroniak Photography',
     description:
-      'A photography portfolio using React, React-Router, TypeScript, Cloudinary, TailwindCSS.',
-    tags: [
-      'React',
-      'TypeScript',
-      'Node',
-      'React-Router',
-      'Cloudinary',
-      'TailwindCSS',
-    ],
+      'A photography portfolio using React, React Router, TypeScript, Cloudinary, and TailwindCSS.',
+    tags: ['React', 'TypeScript', 'React-Router', 'Cloudinary', 'TailwindCSS'],
     repoUrl: 'https://github.com/tworoniak/photography-portfolio',
     liveUrl: 'https://photography-portfolio-iota-eight.vercel.app',
+    role: 'Design + Frontend Engineering',
+    year: 2026,
+    highlights: [
+      'Fast, responsive gallery UI with route-based navigation and clean layouts',
+      'Cloudinary-backed image delivery for optimized loading and consistent sizing',
+      'Reusable components for galleries, featured sets, and home-page sections',
+      'Accessible interactions (focus states, semantic structure, keyboard-friendly nav)',
+    ],
+    images: [
+      // add screenshot URLs when ready (Cloudinary or /public)
+      // "https://.../screenshot1.png",
+      cldImage('photo-portfolio-01_pdu39e'),
+      cldImage('photo-portfolio-02_imyo85'),
+      cldImage('photo-portfolio-03_rc5vf7'),
+      cldImage('photo-portfolio-04_ujvpoa'),
+    ],
+  },
+
+  {
+    slug: 'portfolio',
+    title: 'Developer Portfolio',
+    description: 'Neon/cyber portfolio with animated UI + fast routing.',
+    tags: ['React', 'React-Router', 'TypeScript', 'Tailwind', 'Framer Motion'],
+    repoUrl: 'https://github.com/tworoniak/dev-portfolio',
+    liveUrl: 'https://dev-portfolio-nu-two.vercel.app',
   },
   {
     slug: 'crypto-dash',
@@ -50,11 +74,14 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/tworoniak/idea-drop',
     liveUrl: 'https://idea-drop-ten.vercel.app/',
   },
+
   {
-    slug: 'portfolio',
-    title: 'Developer Portfolio',
-    description: 'Neon/cyber portfolio with animated UI + fast routing.',
-    tags: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
-    repoUrl: 'https://github.com/yourname/dev-portfolio',
+    slug: 'music-player',
+    title: 'Music Player',
+    description:
+      'Basic music player built with React, TypeScript, TailwindCSS.',
+    tags: ['React', 'TypeScript', 'Tailwind'],
+    repoUrl: 'https://github.com/tworoniak/music-player',
+    liveUrl: 'https://music-player-eight-henna.vercel.app/',
   },
 ];

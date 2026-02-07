@@ -1,87 +1,17 @@
-// import { Link, useParams } from 'react-router-dom';
-// import { projects } from '../data/projects';
-
-// export default function ProjectDetail() {
-//   const { slug } = useParams();
-//   const project = projects.find((p) => p.slug === slug);
-
-//   if (!project) {
-//     return (
-//       <div className='space-y-4'>
-//         <h1 className='text-2xl font-semibold'>Project not found</h1>
-//         <Link className='underline underline-offset-4' to='/projects'>
-//           Back to Projects
-//         </Link>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className='space-y-6'>
-//       <div className='space-y-2'>
-//         <Link className='text-sm underline underline-offset-4' to='/projects'>
-//           ← Back
-//         </Link>
-//         <h1 className='text-3xl font-semibold tracking-tight'>
-//           {project.title}
-//         </h1>
-//         <p className='text-zinc-700'>{project.description}</p>
-//       </div>
-
-//       <div className='flex flex-wrap gap-2 text-xs text-zinc-600'>
-//         {project.tags.map((t) => (
-//           <span key={t} className='rounded-full border px-2 py-1'>
-//             {t}
-//           </span>
-//         ))}
-//       </div>
-
-//       <div className='flex flex-wrap gap-3 pt-2'>
-//         {project.repoUrl && (
-//           <a
-//             className='rounded-xl border px-4 py-2'
-//             href={project.repoUrl}
-//             target='_blank'
-//             rel='noreferrer'
-//           >
-//             GitHub Repo
-//           </a>
-//         )}
-//         {project.liveUrl && (
-//           <a
-//             className='rounded-xl bg-zinc-900 px-4 py-2 text-white'
-//             href={project.liveUrl}
-//             target='_blank'
-//             rel='noreferrer'
-//           >
-//             Live Demo
-//           </a>
-//         )}
-//       </div>
-
-//       <div className='rounded-2xl border p-5'>
-//         <div className='font-semibold'>Case study sections to add</div>
-//         <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-700'>
-//           <li>Problem / goal</li>
-//           <li>Stack + architecture</li>
-//           <li>Key features</li>
-//           <li>Challenges + solutions</li>
-//           <li>What you’d do next</li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
-
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
+
+import NeonLightbox from '../components/NeonLightbox';
 
 const glow = 'bg-gradient-to-r from-fuchsia-400 via-cyan-300 to-emerald-300';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   if (!project) {
     return (
@@ -96,6 +26,8 @@ export default function ProjectDetail() {
       </div>
     );
   }
+
+  const screenshots = project.images ?? [];
 
   return (
     <div className='space-y-8'>
@@ -221,21 +153,55 @@ export default function ProjectDetail() {
             </div>
 
             <div className='mt-4 grid gap-4 sm:grid-cols-2'>
-              {[1, 2, 3, 4].map((n) => (
-                <div
-                  key={n}
-                  className='relative aspect-16/10 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/60'
+              {(screenshots.length
+                ? screenshots
+                : [null, null, null, null]
+              ).map((src, idx) => (
+                <button
+                  key={src ?? idx}
+                  type='button'
+                  onClick={() => {
+                    if (!src) return;
+                    setLightboxIndex(idx);
+                    setLightboxOpen(true);
+                  }}
+                  className='cursor-pointer hover:scale-105 transition duration-300 relative aspect-16/10 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/60 text-left'
+                  aria-label={
+                    src ? 'Open screenshot' : 'Screenshot placeholder'
+                  }
                 >
                   <div className='pointer-events-none absolute inset-0 opacity-[0.08] [background:repeating-linear-gradient(to_bottom,white_0px,white_1px,transparent_2px,transparent_6px)]' />
-                  <div className='absolute inset-0 grid place-items-center text-xs text-zinc-500'>
-                    Screenshot {n}
+
+                  {src ? (
+                    <img
+                      src={src}
+                      alt={`${project.title} screenshot ${idx + 1}`}
+                      className='h-full w-full object-cover'
+                      loading='lazy'
+                    />
+                  ) : (
+                    <div className='absolute inset-0 grid place-items-center text-xs text-zinc-500'>
+                      Screenshot {idx + 1}
+                    </div>
+                  )}
+
+                  <div className='absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-black/55 to-transparent' />
+                  <div className='absolute bottom-3 left-3 text-xs text-zinc-200/90'>
+                    {src ? 'Click to expand' : 'Add image later'}
                   </div>
-                  <div
-                    className={`absolute bottom-0 left-0 h-0.5 w-0 ${glow} transition-all duration-300 hover:w-full`}
-                  />
-                </div>
+                  <div className='mt-5 h-0.5 w-0 bg-linear-to-r from-fuchsia-400 via-cyan-300 to-emerald-300 transition-all duration-300 hover:w-full' />
+                </button>
               ))}
             </div>
+            {/* Lightbox */}
+            <NeonLightbox
+              isOpen={lightboxOpen}
+              images={screenshots}
+              index={lightboxIndex}
+              title={project.title}
+              onClose={() => setLightboxOpen(false)}
+              onIndexChange={setLightboxIndex}
+            />
           </section>
 
           {/* Stack + Architecture */}

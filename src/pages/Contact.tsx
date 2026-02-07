@@ -9,19 +9,19 @@ export default function Contact() {
       <div className='rounded-2xl border p-5 space-y-2'>
         <a
           className='block underline underline-offset-4'
-          href='mailto:you@email.com'
+          href='mailto:thomasworoniak@gmail.com'
         >
-          you@email.com
+          thomasworoniak@gmail.com
         </a>
         <a
           className='block underline underline-offset-4'
-          href='https://github.com/yourname'
+          href='https://github.com/tworoniak'
         >
           GitHub
         </a>
         <a
           className='block underline underline-offset-4'
-          href='https://linkedin.com/in/yourname'
+          href='https://www.linkedin.com/in/thomasworoniak/'
         >
           LinkedIn
         </a>
