@@ -168,6 +168,45 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'riff-finder',
+    title: 'Riff Finder',
+    description:
+      'Riff Finder is a music discovery app built with React, TypeScript, and TailwindCSS.',
+    overview:
+      'Riff Finder is a music discovery app built with React, TypeScript, and TailwindCSS. It allows users to search artists, view top tracks/albums, and generate recommendations using a rules-based discovery algorithm. Uses TanStack Query for data fetching and caching, with a mock Spotify API setup for easy migration to real Spotify endpoints.',
+
+    tags: ['React', 'TypeScript', 'TailwindCSS', 'UI State', 'Vite'],
+
+    repoUrl: 'https://github.com/tworoniak/riff-finder',
+    // liveUrl: '#',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    highlights: ['To be added...'],
+
+    features: ['To be added...'],
+
+    challenges: ['To be added...'],
+
+    nextSteps: ['To be added...'],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TailwindCSS v4',
+        '@coreui/react',
+        'rc-progress',
+        'lucide-react',
+      ],
+      tooling: ['Vite 7', 'ESLint'],
+      hosting: ['Vercel'],
+    },
+
+    images: [],
+  },
+  {
     slug: 'crypto-dash',
     title: 'CryptoDash',
     description:
@@ -231,7 +270,12 @@ export const projects: Project[] = [
     },
 
     images: [
-      // Add screenshot URLs (Cloudinary recommended)
+      // add screenshot URLs when ready (Cloudinary or /public)
+      // "https://.../screenshot1.png",
+      cldImage('crypto-dash-01_hkcap0'),
+      cldImage('crypto-dash-02_wqqsvk'),
+      cldImage('crypto-dash-03_ynrwxq'),
+      cldImage('crypto-dash-04_ihplea'),
     ],
   },
 
@@ -320,7 +364,6 @@ export const projects: Project[] = [
 
     images: [],
   },
-
   {
     slug: 'music-player',
     title: 'Music Player',
