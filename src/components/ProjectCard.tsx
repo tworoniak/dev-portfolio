@@ -62,7 +62,7 @@ export default function ProjectCard({ project, onTagClick }: Props) {
                 e.stopPropagation();
                 onTagClick?.(t);
               }}
-              className='rounded-full border border-white/10 bg-black/20 px-3 py-1 transition hover:bg-white/10'
+              className='cursor-pointer rounded-full border border-whiteSmoke/30 bg-black/20 px-3 py-1 transition hover:bg-whiteSmoke/30'
               title={`Filter by ${t}`}
             >
               {t}

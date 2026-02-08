@@ -7,6 +7,36 @@ import NeonLightbox from '../components/NeonLightbox';
 
 const glow = 'bg-gradient-to-r from-fuchsia-400 via-cyan-300 to-emerald-300';
 
+type Stack = {
+  frontend?: string[];
+  backend?: string[];
+  images?: string[];
+  auth?: string[];
+  hosting?: string[];
+  testing?: string[];
+  tooling?: string[];
+  apis?: string[];
+};
+
+type StackBlock = { label: string; items: string[] };
+
+function buildStackBlocks(stack?: Stack): StackBlock[] {
+  if (!stack) return [];
+
+  const blocks: StackBlock[] = [
+    { label: 'Frontend', items: stack.frontend ?? [] },
+    { label: 'Backend', items: stack.backend ?? [] },
+    { label: 'Images', items: stack.images ?? [] },
+    { label: 'Auth', items: stack.auth ?? [] },
+    { label: 'Hosting', items: stack.hosting ?? [] },
+    { label: 'Testing', items: stack.testing ?? [] },
+    { label: 'Tooling', items: stack.tooling ?? [] },
+    { label: 'APIs', items: stack.apis ?? [] },
+  ];
+
+  return blocks.filter((b) => b.items.length > 0);
+}
+
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
@@ -28,6 +58,12 @@ export default function ProjectDetail() {
   }
 
   const screenshots = project.images ?? [];
+
+  const stackBlocks = buildStackBlocks(project.stack);
+  // const overview = project.overview;
+  const highlights = project.highlights ?? [];
+  const challenges = project.challenges ?? [];
+  const nextSteps = project.nextSteps ?? [];
 
   return (
     <div className='space-y-8'>
@@ -126,9 +162,7 @@ export default function ProjectDetail() {
           <section className='rounded-3xl border border-white/10 bg-white/5 p-6'>
             <h2 className='text-lg font-semibold'>Overview</h2>
             <p className='mt-3 text-sm text-zinc-200/90'>
-              Add 4–6 sentences here: the problem, your goal, who it’s for, and
-              the key outcome. Keep it concrete (performance gains, UX
-              improvement, time saved, etc.).
+              {project.overview ?? 'Overview coming soon...'}
             </p>
           </section>
 
@@ -136,10 +170,20 @@ export default function ProjectDetail() {
           <section className='rounded-3xl border border-white/10 bg-white/5 p-6'>
             <h2 className='text-lg font-semibold'>Highlights</h2>
             <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-200/90'>
-              <li>Neon UI with animated transitions and responsive layouts</li>
-              <li>Search + tag filtering for quick project discovery</li>
-              <li>Accessible components and keyboard-friendly interactions</li>
-              <li>Optimized loading + image handling (add specifics)</li>
+              {highlights.length ? (
+                highlights.map((h) => <li key={h}>{h}</li>)
+              ) : (
+                <>
+                  <li>
+                    Neon UI with animated transitions and responsive layouts
+                  </li>
+                  <li>Search + tag filtering for quick project discovery</li>
+                  <li>
+                    Accessible components and keyboard-friendly interactions
+                  </li>
+                  <li>Optimized loading + image handling (add specifics)</li>
+                </>
+              )}
             </ul>
           </section>
 
@@ -147,9 +191,9 @@ export default function ProjectDetail() {
           <section className='rounded-3xl border border-white/10 bg-white/5 p-6'>
             <div className='flex items-baseline justify-between'>
               <h2 className='text-lg font-semibold'>Screenshots</h2>
-              <span className='text-xs text-zinc-400'>
+              {/* <span className='text-xs text-zinc-400'>
                 Drop images in later
-              </span>
+              </span> */}
             </div>
 
             <div className='mt-4 grid gap-4 sm:grid-cols-2'>
@@ -165,7 +209,7 @@ export default function ProjectDetail() {
                     setLightboxIndex(idx);
                     setLightboxOpen(true);
                   }}
-                  className='cursor-pointer hover:scale-105 transition duration-300 relative aspect-16/10 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/60 text-left'
+                  className='group cursor-pointer hover:scale-105 transition duration-300 relative aspect-16/10 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/60 text-left'
                   aria-label={
                     src ? 'Open screenshot' : 'Screenshot placeholder'
                   }
@@ -189,7 +233,7 @@ export default function ProjectDetail() {
                   <div className='absolute bottom-3 left-3 text-xs text-zinc-200/90'>
                     {src ? 'Click to expand' : 'Add image later'}
                   </div>
-                  <div className='mt-5 h-0.5 w-0 bg-linear-to-r from-fuchsia-400 via-cyan-300 to-emerald-300 transition-all duration-300 hover:w-full' />
+                  <div className='mt-5 h-0.5 w-0 bg-linear-to-r from-fuchsia-400 via-cyan-300 to-emerald-300 transition-all duration-300 group-hover:w-full' />
                 </button>
               ))}
             </div>
@@ -207,49 +251,77 @@ export default function ProjectDetail() {
           {/* Stack + Architecture */}
           <section className='rounded-3xl border border-white/10 bg-white/5 p-6'>
             <h2 className='text-lg font-semibold'>Stack & Architecture</h2>
-            <div className='mt-4 grid gap-4 sm:grid-cols-2'>
-              <div className='rounded-2xl border border-white/10 bg-black/20 p-4'>
-                <div className='text-sm font-semibold'>Frontend</div>
-                <p className='mt-2 text-sm text-zinc-200/90'>
-                  React, TypeScript, Tailwind, Framer Motion, React Router.
-                </p>
+            {stackBlocks.length ? (
+              <div className='mt-4 grid gap-4 sm:grid-cols-2'>
+                {stackBlocks.map((block) => (
+                  <div
+                    key={block.label}
+                    className='rounded-2xl border border-white/10 bg-black/20 p-4'
+                  >
+                    <div className='text-sm font-semibold'>{block.label}</div>
+
+                    <div className='mt-3 flex flex-wrap gap-2'>
+                      {block.items.map((item) => (
+                        <span
+                          key={item}
+                          className='rounded-full border border-white/10 bg-zinc-950/40 px-3 py-1 text-xs text-zinc-200'
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className={`mt-4 h-0.5 w-24 ${glow}`} />
+                  </div>
+                ))}
               </div>
-              <div className='rounded-2xl border border-white/10 bg-black/20 p-4'>
-                <div className='text-sm font-semibold'>Backend / Data</div>
-                <p className='mt-2 text-sm text-zinc-200/90'>
-                  Add your API, DB, auth, hosting, etc. (or “N/A” if
-                  frontend-only).
-                </p>
-              </div>
-            </div>
+            ) : (
+              <p className='mt-3 text-sm text-zinc-200/90'>
+                Stack details coming soon.
+              </p>
+            )}
           </section>
 
           {/* Challenges */}
           <section className='rounded-3xl border border-white/10 bg-white/5 p-6'>
             <h2 className='text-lg font-semibold'>Challenges & Solutions</h2>
-            <div className='mt-3 space-y-3 text-sm text-zinc-200/90'>
-              <div className='rounded-2xl border border-white/10 bg-black/20 p-4'>
-                <div className='font-semibold'>Challenge</div>
-                <p className='mt-1'>
-                  Example: complex state + filtering without slowing the UI.
-                </p>
-                <div className={`mt-3 h-0.5 w-28 ${glow}`} />
-                <div className='mt-3 font-semibold'>Solution</div>
-                <p className='mt-1'>
-                  Example: memoized derived data, stable handlers, and
-                  lightweight UI states.
-                </p>
+            {challenges.length ? (
+              <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-200/90'>
+                {challenges.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            ) : (
+              <div className='mt-3 space-y-3 text-sm text-zinc-200/90'>
+                <div className='rounded-2xl border border-white/10 bg-black/20 p-4'>
+                  <div className='font-semibold'>Challenge</div>
+                  <p className='mt-1'>
+                    Example: complex state + filtering without slowing the UI.
+                  </p>
+                  <div className={`mt-3 h-0.5 w-28 ${glow}`} />
+                  <div className='mt-3 font-semibold'>Solution</div>
+                  <p className='mt-1'>
+                    Example: memoized derived data, stable handlers, and
+                    lightweight UI states.
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </section>
 
           {/* Next steps */}
           <section className='rounded-3xl border border-white/10 bg-white/5 p-6'>
             <h2 className='text-lg font-semibold'>Next Steps</h2>
             <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-200/90'>
-              <li>Add MDX case studies per project</li>
-              <li>Integrate screenshot lightbox</li>
-              <li>Performance: route-based code splitting</li>
+              {nextSteps.length ? (
+                nextSteps.map((s) => <li key={s}>{s}</li>)
+              ) : (
+                <>
+                  <li>Add MDX case studies per project</li>
+                  <li>Integrate screenshot lightbox</li>
+                  <li>Performance: route-based code splitting</li>
+                </>
+              )}
             </ul>
           </section>
         </div>
@@ -292,11 +364,11 @@ export default function ProjectDetail() {
             <div className='mt-3 space-y-2 text-sm text-zinc-200/90'>
               <div className='flex items-center justify-between'>
                 <span className='text-zinc-400'>Role</span>
-                <span>Frontend</span>
+                <span>{project.role ?? 'Frontend'}</span>
               </div>
               <div className='flex items-center justify-between'>
                 <span className='text-zinc-400'>Year</span>
-                <span>{new Date().getFullYear()}</span>
+                <span>{project.year ?? new Date().getFullYear()}</span>
               </div>
               <div className='flex items-center justify-between'>
                 <span className='text-zinc-400'>Status</span>

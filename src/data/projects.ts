@@ -1,9 +1,21 @@
 import { cldImage } from '../utils/cloudinary';
 
+export type ProjectStack = {
+  frontend?: string[];
+  backend?: string[];
+  images?: string[];
+  auth?: string[];
+  hosting?: string[];
+  testing?: string[];
+  tooling?: string[];
+  apis?: string[];
+};
+
 export type Project = {
   slug: string;
   title: string;
   description: string;
+  overview?: string;
   tags: string[];
   repoUrl?: string;
   liveUrl?: string;
@@ -11,7 +23,12 @@ export type Project = {
   role?: string;
   year?: number;
   highlights?: string[];
+  features?: string[];
+  challenges?: string[];
+  nextSteps?: string[];
   images?: string[]; // screenshot URLs
+
+  stack?: ProjectStack;
 };
 
 export const projects: Project[] = [
@@ -25,12 +42,50 @@ export const projects: Project[] = [
     liveUrl: 'https://photography-portfolio-iota-eight.vercel.app',
     role: 'Design + Frontend Engineering',
     year: 2026,
+    overview:
+      'I built a modern photography portfolio designed to showcase concert and editorial work with fast navigation, clean gallery layouts, and Cloudinary-powered image delivery. The goal was to create a scalable structure where new galleries can be added easily while keeping performance and visual presentation as the priority.',
     highlights: [
-      'Fast, responsive gallery UI with route-based navigation and clean layouts',
-      'Cloudinary-backed image delivery for optimized loading and consistent sizing',
-      'Reusable components for galleries, featured sets, and home-page sections',
-      'Accessible interactions (focus states, semantic structure, keyboard-friendly nav)',
+      'Multi-page routing with React Router for clean navigation between galleries',
+      'Cloudinary image delivery with dynamic resizing for fast load performance',
+      'Reusable gallery and lightbox components for consistent UI patterns',
+      'Responsive layout optimized for mobile and desktop viewing',
+      'Styled with TailwindCSS for rapid iteration and maintainable design consistency',
     ],
+
+    features: [
+      'Homepage featuring curated featured images and galleries',
+      'Dedicated gallery pages with grid layout and filtering-ready structure',
+      'Lightbox modal with next/previous navigation and keyboard support',
+      'Cloudinary-powered responsive images (auto quality + format)',
+      'Reusable UI components (cards, navigation, layout sections)',
+    ],
+
+    challenges: [
+      'Designing a gallery UI that feels modern while keeping image focus as the priority',
+      'Managing routing and navigation state cleanly between multiple gallery pages',
+      'Optimizing image loading while preserving visual quality across screen sizes',
+      'Building reusable components to avoid duplication across gallery views',
+    ],
+
+    nextSteps: [
+      'Add category/tag filtering and search for galleries',
+      'Add pagination or lazy-loading for large photo sets',
+      'Improve SEO with structured metadata and Open Graph tags',
+      'Add CMS-driven content (or JSON-based config) for easier updates',
+      'Add analytics tracking to measure engagement and gallery performance',
+    ],
+    stack: {
+      frontend: [
+        'React',
+        'TypeScript',
+        'React Router',
+        'TailwindCSS',
+        'Framer Motion',
+      ],
+      images: ['Cloudinary'],
+      hosting: ['Vercel'],
+      tooling: ['Vite', 'ESLint'],
+    },
     images: [
       // add screenshot URLs when ready (Cloudinary or /public)
       // "https://.../screenshot1.png",
@@ -43,45 +98,290 @@ export const projects: Project[] = [
 
   {
     slug: 'portfolio',
-    title: 'Developer Portfolio',
+    title: 'Frontend Developer Portfolio',
     description: 'Neon/cyber portfolio with animated UI + fast routing.',
-    tags: ['React', 'React-Router', 'TypeScript', 'Tailwind', 'Framer Motion'],
+    tags: [
+      'React',
+      'React-Router',
+      'TypeScript',
+      'TailwindCSS',
+      'Framer Motion',
+    ],
     repoUrl: 'https://github.com/tworoniak/dev-portfolio',
     liveUrl: 'https://dev-portfolio-nu-two.vercel.app',
+    role: 'Design + Frontend Engineering',
+    year: 2026,
+
+    overview:
+      'I built a modern frontend developer portfolio to showcase my work through clean project case studies, animated UI transitions, and a bold neon-inspired design system. The goal was to create a fast, responsive site that highlights both technical skill and visual polish, while keeping the codebase scalable for adding future projects and content.',
+
+    highlights: [
+      'Multi-page portfolio built with React Router and clean route structure',
+      'Neon/cyber UI styling with TailwindCSS and Framer Motion animations',
+      'Dynamic project detail pages driven by reusable data models',
+      'Responsive layout optimized for mobile-first viewing and modern browsers',
+      'Component-based architecture designed for maintainability and scalability',
+    ],
+
+    features: [
+      'Homepage hero section with animated intro and featured project grid',
+      'Projects page with search + tag filtering for fast discovery',
+      'Project detail pages with structured case study sections (overview, highlights, stack, next steps)',
+      'Screenshot gallery with lightbox modal, keyboard navigation, and swipe support',
+      'Reusable layout system with animated page transitions and consistent navigation',
+    ],
+
+    challenges: [
+      'Creating smooth page transitions without flicker while maintaining performance',
+      'Designing a bold visual identity that still feels professional and readable',
+      'Structuring project data so detail pages render dynamically and remain easy to update',
+      'Balancing animation polish with accessibility and usability best practices',
+    ],
+
+    nextSteps: [
+      'Add MDX support for long-form project case studies and blog posts',
+      'Add dark/light theme toggle with persisted user preference',
+      'Improve SEO with Open Graph tags, sitemap generation, and metadata per project',
+      'Add analytics tracking to measure project engagement and traffic sources',
+      'Implement lazy-loading and image optimization for screenshots and thumbnails',
+    ],
+
+    stack: {
+      frontend: [
+        'React',
+        'TypeScript',
+        'React Router',
+        'TailwindCSS',
+        'Framer Motion',
+      ],
+      hosting: ['Vercel'],
+      tooling: ['Vite', 'ESLint', 'Prettier'],
+    },
+
+    images: [
+      // add screenshot URLs when ready (Cloudinary or /public)
+      // "https://.../screenshot1.png",
+      cldImage('dev-portfolio-01_wbzxhx'),
+      cldImage('dev-portfolio-02_wfchre'),
+      cldImage('dev-portfolio-03_vtovl9'),
+      cldImage('dev-portfolio-04_gukrsd'),
+    ],
   },
   {
     slug: 'crypto-dash',
     title: 'CryptoDash',
     description:
-      "Simple crypto price listing app based on Brad Traversy's on Udemy.com using React, React-Router, React-Chart.",
-    tags: ['React', 'Node', 'React-Router', 'React-Chart'],
+      'A crypto dashboard that pulls market data from CoinGecko and visualizes trends with Chart.js.',
+    tags: ['React', 'React Router', 'CoinGecko', 'Chart.js', 'Vite'],
+
     repoUrl: 'https://github.com/tworoniak/crypto-dash',
-    liveUrl: 'https://crypto-dash-hazel-kappa.vercel.app/',
+    liveUrl: 'https://crypto-dash-hazel-kappa.vercel.app',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    overview:
+      'I built a lightweight crypto dashboard using the CoinGecko API to display market data and visualize price trends. The goal was to practice API-driven UI patterns (loading/error states, formatting, and routing) while keeping the interface fast, readable, and mobile-friendly.',
+
+    highlights: [
+      'CoinGecko-powered market data with a clean, scannable dashboard UI',
+      'Chart visualizations built with Chart.js + react-chartjs-2',
+      'Date-aware chart formatting using date-fns and chartjs-adapter-date-fns',
+      'Client-side routing with React Router for multi-view navigation',
+      'Polished UI details with lucide-react icons and react-spinners loading states',
+    ],
+
+    features: [
+      'Crypto listings view for quick price checks and market context',
+      'Chart view(s) for trend visualization over time',
+      'Loading indicators and resilient error handling during API calls',
+      'Date-formatted chart axes and time-series readability improvements',
+      'Mobile-friendly layout and lightweight navigation with React Router',
+    ],
+
+    challenges: [
+      'Handling real-world API constraints (rate limits, missing fields, intermittent failures)',
+      'Making charts readable across screen sizes while keeping performance snappy',
+      'Ensuring smooth route transitions and state consistency between views',
+      'Presenting dense numeric data in a UI that’s easy to scan quickly',
+    ],
+
+    nextSteps: [
+      'Add search + sort (price, market cap, 24h change) to improve discovery',
+      'Add coin detail pages with richer stats, ranges, and multiple time windows',
+      'Add caching/revalidation (e.g., React Query) to reduce API calls and UI flicker',
+      'Add a watchlist (localStorage) and simple alerts for threshold changes',
+      'Add skeleton loaders and empty states for improved perceived performance',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'React Router 7',
+        'Chart.js',
+        'react-chartjs-2',
+        'lucide-react',
+        'react-spinners',
+        'date-fns',
+        'chartjs-adapter-date-fns',
+      ],
+      apis: ['CoinGecko'],
+      hosting: ['Vercel'],
+      tooling: ['Vite', 'ESLint'],
+    },
+
+    images: [
+      // Add screenshot URLs (Cloudinary recommended)
+    ],
   },
+
   {
     slug: 'idea-drop',
     title: 'IdeaDrop',
-    description: 'Capture, organize, and share ideas with a clean UI.',
+    description:
+      'A full-stack idea management app with a modern React UI, JWT auth, and an Express/MongoDB API.',
+    overview:
+      'I built IdeaDrop as a full-stack application for capturing, browsing, and managing ideas through a clean, app-like interface. The frontend uses TanStack Router and TanStack Query for fast navigation and resilient server-state handling, while the backend provides a secure API with JWT-based auth, password hashing, and a MongoDB persistence layer via Mongoose.',
+
     tags: [
       'React',
       'TypeScript',
-      'Node',
-      'MongoDB',
       'TailwindCSS',
-      'Tanstack-React-Query',
-      'Tanstack-Router',
+      'TanStack Router',
+      'TanStack Query',
+      'Node',
+      'Express',
+      'MongoDB',
+      'JWT',
     ],
+
     repoUrl: 'https://github.com/tworoniak/idea-drop',
-    liveUrl: 'https://idea-drop-ten.vercel.app/',
+    liveUrl: 'https://idea-drop-ten.vercel.app',
+
+    role: 'Design + Full-Stack Engineering',
+    year: 2026,
+
+    highlights: [
+      'Full-stack architecture: React UI + Express API + MongoDB persistence',
+      'Client-side routing with TanStack Router and server-state management via TanStack Query',
+      'JWT authentication using jose, with cookie support and protected API routes',
+      'Password hashing with bcryptjs and secure auth flow patterns',
+      'API integration via Axios with consistent loading/error/success states',
+    ],
+
+    features: [
+      'Create, browse, and manage idea entries with end-to-end CRUD workflows',
+      'Authentication flow with protected routes/actions and user-aware API behavior',
+      'Server-state patterns: queries, mutations, and refetching via TanStack Query',
+      'Local dev support using JSON Server for rapid UI iteration (when needed)',
+      'Backend middleware setup including CORS, cookie parsing, and environment configuration',
+    ],
+
+    challenges: [
+      'Keeping UI state consistent after create/update/delete actions without flicker',
+      'Designing reusable query keys and mutation flows for maintainable data fetching',
+      'Coordinating auth state across routing + API calls (including refresh behavior)',
+      'Hardening the API with predictable validation/error responses for a better UX',
+    ],
+
+    nextSteps: [
+      'Add stronger form validation and clearer error messaging end-to-end',
+      'Expand test coverage for key flows (auth + CRUD + error states)',
+      'Add pagination, sorting, and search to scale beyond small datasets',
+      'Add rate limiting and request logging on the API',
+      'Improve UX polish with skeleton loaders, empty states, and better retry/recovery',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TanStack Router',
+        'TanStack Query',
+        'Axios',
+        'TailwindCSS v4',
+        'lucide-react',
+      ],
+      backend: [
+        'Node.js',
+        'Express 5',
+        'MongoDB',
+        'Mongoose',
+        'jose (JWT)',
+        'bcryptjs',
+        'cookie-parser',
+        'cors',
+        'dotenv',
+      ],
+      testing: ['Vitest', 'Testing Library', 'jsdom'],
+      tooling: ['Vite 7', 'JSON Server (local dev)'],
+      hosting: ['Vercel (frontend)', 'Render (API)'],
+    },
+
+    images: [],
   },
 
   {
     slug: 'music-player',
     title: 'Music Player',
     description:
-      'Basic music player built with React, TypeScript, TailwindCSS.',
-    tags: ['React', 'TypeScript', 'Tailwind'],
+      'A React music player with playlist controls, progress tracking, and a responsive UI.',
+    overview:
+      'I built a browser-based music player to practice real-world UI state management around media playback—play/pause, next/previous, progress seeking, and track selection—while keeping the interface responsive and component-driven. The goal was to build a reusable player architecture that cleanly separates audio control logic from UI components and styling.',
+
+    tags: ['React', 'TypeScript', 'TailwindCSS', 'Sass', 'UI State', 'Vite'],
+
     repoUrl: 'https://github.com/tworoniak/music-player',
-    liveUrl: 'https://music-player-eight-henna.vercel.app/',
+    liveUrl: 'https://music-player-eight-henna.vercel.app',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    highlights: [
+      'Audio playback controls wired to the HTMLAudioElement via a React ref',
+      'Progress tracking + seeking using rc-progress with time/duration display',
+      'Component-based UI using CoreUI with custom styling via TailwindCSS + Sass',
+      'State-driven playlist selection and active track UI',
+      'Interaction polish using lucide-react icons and responsive layout patterns',
+    ],
+
+    features: [
+      'Play / pause and next / previous track navigation',
+      'Seekable progress bar with current time + duration tracking',
+      'Volume and playback controls (as implemented)',
+      'Track list / playlist selection and active track indication',
+      'Responsive layout designed for desktop and mobile',
+    ],
+
+    challenges: [
+      'Keeping playback behavior consistent across track changes (resetting progress, loading metadata, auto-play behavior)',
+      'Avoiding stale state bugs between UI controls and audio element events',
+      'Designing reusable components without coupling logic to a single layout',
+      'Handling edge cases like track end events, duration loading, and rapid user input',
+    ],
+
+    nextSteps: [
+      'Add keyboard shortcuts (space play/pause, arrows seek/skip) and improved accessibility labels',
+      'Persist player state (last track, volume, position) using localStorage',
+      'Add shuffle/repeat modes and a favorites/playlist system',
+      'Add better loading states and error handling for missing/unavailable tracks',
+      'Add tests around player helpers and critical UI interactions',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TailwindCSS v4',
+        'Sass',
+        '@coreui/react',
+        'rc-progress',
+        'lucide-react',
+      ],
+      tooling: ['Vite 7', 'ESLint'],
+      hosting: ['Vercel'],
+    },
+
+    images: [],
   },
 ];

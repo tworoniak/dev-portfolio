@@ -57,7 +57,7 @@ export default function Projects() {
                   setQuery('');
                   setActiveTag(null);
                 }}
-                className='text-xs underline underline-offset-4 text-zinc-300 hover:text-white'
+                className='cursor-pointer text-xs underline underline-offset-4 text-zinc-300 hover:text-white'
               >
                 Clear
               </button>
@@ -67,7 +67,7 @@ export default function Projects() {
           <div className='flex flex-wrap gap-2'>
             <button
               onClick={() => setActiveTag(null)}
-              className={`rounded-full px-3 py-1 text-xs border transition ${
+              className={`cursor-pointer rounded-full px-3 py-1 text-xs border transition ${
                 !activeTag
                   ? 'border-cyan-300/40 bg-cyan-300/10 text-white'
                   : 'border-white/10 bg-black/20 text-zinc-300 hover:bg-white/10'
@@ -80,7 +80,7 @@ export default function Projects() {
               <button
                 key={t}
                 onClick={() => setActiveTag(t)}
-                className={`rounded-full px-3 py-1 text-xs border transition ${
+                className={`cursor-pointer rounded-full px-3 py-1 text-xs border transition ${
                   activeTag === t
                     ? 'border-fuchsia-300/40 bg-fuchsia-300/10 text-white'
                     : 'border-white/10 bg-black/20 text-zinc-300 hover:bg-white/10'
