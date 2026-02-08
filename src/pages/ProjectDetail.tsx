@@ -16,6 +16,7 @@ type Stack = {
   testing?: string[];
   tooling?: string[];
   apis?: string[];
+  state?: string[];
 };
 
 type StackBlock = { label: string; items: string[] };
@@ -32,6 +33,7 @@ function buildStackBlocks(stack?: Stack): StackBlock[] {
     { label: 'Testing', items: stack.testing ?? [] },
     { label: 'Tooling', items: stack.tooling ?? [] },
     { label: 'APIs', items: stack.apis ?? [] },
+    { label: 'State', items: stack.state ?? [] },
   ];
 
   return blocks.filter((b) => b.items.length > 0);

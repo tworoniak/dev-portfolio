@@ -9,6 +9,7 @@ export type ProjectStack = {
   testing?: string[];
   tooling?: string[];
   apis?: string[];
+  state?: string[];
 };
 
 export type Project = {
