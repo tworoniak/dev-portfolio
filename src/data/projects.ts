@@ -168,6 +168,89 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'job-tracker',
+    title: 'Job Tracker (Kanban + Analytics)',
+    description:
+      'A local-first job application tracker built with React and TypeScript, featuring a sortable Kanban workflow, structured form validation, and filtering for managing an active job search pipeline.',
+    overview:
+      'Job Tracker is a productivity-focused web app designed to manage job applications through a Kanban-style workflow. Users can create, edit, and organize applications across pipeline stages (Applied, Interview, Offer, Rejected), drag and reorder cards with smooth interactions, and filter results by status, work mode, and keyword search. The project emphasizes scalable state structure, clean UI patterns, and strong TypeScript safety.',
+
+    tags: [
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'Vite',
+      'dnd-kit',
+      'React Hook Form',
+      'Zod',
+      'LocalStorage',
+    ],
+
+    repoUrl: 'https://github.com/tworoniak/job-tracker',
+    liveUrl: 'https://job-tracker-teal-three.vercel.app',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    highlights: [
+      'Built a sortable Kanban board using dnd-kit with cross-column drag/drop and persistent ordering',
+      'Implemented form validation and type-safe inputs using React Hook Form + Zod',
+      'Designed a local-first persistence layer with LocalStorage + schema-based migration strategy',
+      'Added a filtering system (search + status + work mode) without breaking Kanban ordering logic',
+      'Structured application state for scalability using normalized records and column-based ordering',
+    ],
+
+    features: [
+      'Kanban board workflow: Applied / Interview / Offer / Rejected',
+      'Drag-and-drop card sorting within columns',
+      'Cross-column drag/drop with automatic state updates',
+      'Add/edit modal form with validation',
+      'LocalStorage persistence (local-first)',
+      'Keyword search by company or role',
+      'Filters by pipeline status and work mode (remote/hybrid/onsite)',
+      'Tech stack tagging system for each application',
+      'External job link support for quick access',
+    ],
+
+    challenges: [
+      'Designing drag-and-drop logic that supports both reordering within columns and moving between columns',
+      'Maintaining consistent ordering while applying filters (solved by disabling drag behavior during filtered views)',
+      'Creating a scalable board state model that avoids nested mutation and supports future analytics',
+      'Managing Zod + React Hook Form type compatibility under strict TypeScript settings',
+      'Ensuring stored data remains clean and future-proof through versioned LocalStorage migrations',
+    ],
+
+    nextSteps: [
+      'Add follow-up reminders with due-date highlighting and notification support',
+      'Build analytics dashboards using Recharts (conversion rate, weekly activity, time-to-offer)',
+      'Add salary range tracking and additional structured metadata per application',
+      'Support file/link attachments and long-form notes per card',
+      'Introduce Supabase authentication and cloud sync for multi-device access',
+      'Add export/import functionality (CSV/JSON) for portability',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TailwindCSS v4',
+        'dnd-kit (sortable drag/drop)',
+        'React Hook Form',
+        'Zod',
+      ],
+      state: ['LocalStorage persistence', 'Normalized board state model'],
+      tooling: ['Vite 7', 'ESLint'],
+      hosting: ['Vercel'],
+    },
+
+    images: [
+      // Add screenshots later:
+      // { src: '/projects/job-tracker/board.png', alt: 'Kanban board view' },
+      // { src: '/projects/job-tracker/modal.png', alt: 'Add/edit job modal form' },
+      // { src: '/projects/job-tracker/filters.png', alt: 'Filters and search UI' },
+    ],
+  },
+  {
     slug: 'riff-finder',
     title: 'Riff Finder',
     description:
