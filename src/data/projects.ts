@@ -246,9 +246,10 @@ export const projects: Project[] = [
 
     images: [
       // Add screenshots later:
-      // { src: '/projects/job-tracker/board.png', alt: 'Kanban board view' },
-      // { src: '/projects/job-tracker/modal.png', alt: 'Add/edit job modal form' },
-      // { src: '/projects/job-tracker/filters.png', alt: 'Filters and search UI' },
+      cldImage('job-tracker-01_f3mysc'),
+      cldImage('job-tracker-02_vho19u'),
+      cldImage('job-tracker-03_bp4pb7'),
+      cldImage('job-tracker-04_zbfgfp'),
     ],
   },
   {
