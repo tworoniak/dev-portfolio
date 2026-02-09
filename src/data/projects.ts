@@ -292,6 +292,148 @@ export const projects: Project[] = [
     images: [],
   },
   {
+    slug: 'music-player',
+    title: 'Music Player',
+    description:
+      'A React music player with playlist controls, progress tracking, and a responsive UI.',
+    overview:
+      'I built a browser-based music player to practice real-world UI state management around media playback—play/pause, next/previous, progress seeking, and track selection—while keeping the interface responsive and component-driven. The goal was to build a reusable player architecture that cleanly separates audio control logic from UI components and styling.',
+
+    tags: ['React', 'TypeScript', 'TailwindCSS', 'Sass', 'UI State', 'Vite'],
+
+    repoUrl: 'https://github.com/tworoniak/music-player',
+    liveUrl: 'https://music-player-eight-henna.vercel.app',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    highlights: [
+      'Audio playback controls wired to the HTMLAudioElement via a React ref',
+      'Progress tracking + seeking using rc-progress with time/duration display',
+      'Component-based UI using CoreUI with custom styling via TailwindCSS + Sass',
+      'State-driven playlist selection and active track UI',
+      'Interaction polish using lucide-react icons and responsive layout patterns',
+    ],
+
+    features: [
+      'Play / pause and next / previous track navigation',
+      'Seekable progress bar with current time + duration tracking',
+      'Volume and playback controls (as implemented)',
+      'Track list / playlist selection and active track indication',
+      'Responsive layout designed for desktop and mobile',
+    ],
+
+    challenges: [
+      'Keeping playback behavior consistent across track changes (resetting progress, loading metadata, auto-play behavior)',
+      'Avoiding stale state bugs between UI controls and audio element events',
+      'Designing reusable components without coupling logic to a single layout',
+      'Handling edge cases like track end events, duration loading, and rapid user input',
+    ],
+
+    nextSteps: [
+      'Add keyboard shortcuts (space play/pause, arrows seek/skip) and improved accessibility labels',
+      'Persist player state (last track, volume, position) using localStorage',
+      'Add shuffle/repeat modes and a favorites/playlist system',
+      'Add better loading states and error handling for missing/unavailable tracks',
+      'Add tests around player helpers and critical UI interactions',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TailwindCSS v4',
+        'Sass',
+        '@coreui/react',
+        'rc-progress',
+        'lucide-react',
+      ],
+      tooling: ['Vite 7', 'ESLint'],
+      hosting: ['Vercel'],
+    },
+
+    images: [],
+  },
+  {
+    slug: 'saas-dashboard',
+    title: 'AcmeCloud - SaaS Dashboard UI',
+    description:
+      'A modern SaaS-style dashboard UI built with React and TypeScript featuring protected routes, analytics charts, notifications, settings, and dark mode support.',
+    overview:
+      'AcmeCloud is a fake SaaS dashboard project designed to replicate the look and feel of a real startup product. It includes a responsive sidebar layout, authentication flow with protected routes, interactive UI state (notifications, theme preferences), and a dashboard analytics experience powered by Recharts. The goal of this project was to build a polished, portfolio-ready interface that demonstrates real-world frontend architecture and clean UI patterns.',
+
+    tags: [
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'Recharts',
+      'React Router',
+      'UI Architecture',
+      'Dashboard UI',
+      'Dark Mode',
+      'Protected Routes',
+      'Vite',
+    ],
+
+    repoUrl: 'https://github.com/tworoniak/saas-dashboard',
+    liveUrl: 'https://saas-dashboard-rosy.vercel.app',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    highlights: [
+      'Built a full SaaS dashboard layout with sidebar navigation and nested routing',
+      'Implemented fake authentication with protected routes and login redirect behavior',
+      'Created a notifications dropdown system with unread state and UI interactions',
+      'Integrated Recharts to display analytics data in a clean, modern dashboard UI',
+      'Implemented persistent dark mode using Tailwind class-based theming and LocalStorage',
+    ],
+
+    features: [
+      'Authentication flow with fake login/logout and session persistence',
+      'Protected routes that redirect unauthenticated users to the login screen',
+      'Dashboard page with KPI cards and revenue chart visualization',
+      'Settings page with workspace preferences and theme controls',
+      'Notifications dropdown with unread badge and mark-as-read behavior',
+      'Responsive layout optimized for desktop and mobile views',
+    ],
+
+    challenges: [
+      'Structuring the project cleanly with scalable folder architecture (auth, theme, routes, ui)',
+      'Managing persistent state (theme + auth) without overcomplicating the state layer',
+      'Ensuring React Fast Refresh compatibility by separating providers, hooks, and utilities',
+      'Creating a polished UI using Tailwind while keeping components clean and reusable',
+      'Building a realistic dashboard layout experience using nested routing patterns',
+    ],
+
+    nextSteps: [
+      'Add real authentication using Supabase or Firebase',
+      'Add role-based access control (Admin vs User)',
+      'Create additional dashboard pages such as Billing, Team, and Usage Analytics',
+      'Add toast notifications and loading skeleton states',
+      'Add API-driven chart data and a mock backend layer',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TailwindCSS v4',
+        'React Router',
+        'Recharts',
+      ],
+      tooling: ['Vite', 'ESLint'],
+      hosting: ['Vercel'],
+    },
+
+    images: [
+      // Add screenshot paths here later, example:
+      // '/images/projects/saas-dashboard/dashboard.png',
+      // '/images/projects/saas-dashboard/login.png',
+      // '/images/projects/saas-dashboard/settings.png',
+    ],
+  },
+  {
     slug: 'crypto-dash',
     title: 'CryptoDash',
     description:
@@ -445,69 +587,6 @@ export const projects: Project[] = [
       testing: ['Vitest', 'Testing Library', 'jsdom'],
       tooling: ['Vite 7', 'JSON Server (local dev)'],
       hosting: ['Vercel (frontend)', 'Render (API)'],
-    },
-
-    images: [],
-  },
-  {
-    slug: 'music-player',
-    title: 'Music Player',
-    description:
-      'A React music player with playlist controls, progress tracking, and a responsive UI.',
-    overview:
-      'I built a browser-based music player to practice real-world UI state management around media playback—play/pause, next/previous, progress seeking, and track selection—while keeping the interface responsive and component-driven. The goal was to build a reusable player architecture that cleanly separates audio control logic from UI components and styling.',
-
-    tags: ['React', 'TypeScript', 'TailwindCSS', 'Sass', 'UI State', 'Vite'],
-
-    repoUrl: 'https://github.com/tworoniak/music-player',
-    liveUrl: 'https://music-player-eight-henna.vercel.app',
-
-    role: 'Frontend Engineering',
-    year: 2026,
-
-    highlights: [
-      'Audio playback controls wired to the HTMLAudioElement via a React ref',
-      'Progress tracking + seeking using rc-progress with time/duration display',
-      'Component-based UI using CoreUI with custom styling via TailwindCSS + Sass',
-      'State-driven playlist selection and active track UI',
-      'Interaction polish using lucide-react icons and responsive layout patterns',
-    ],
-
-    features: [
-      'Play / pause and next / previous track navigation',
-      'Seekable progress bar with current time + duration tracking',
-      'Volume and playback controls (as implemented)',
-      'Track list / playlist selection and active track indication',
-      'Responsive layout designed for desktop and mobile',
-    ],
-
-    challenges: [
-      'Keeping playback behavior consistent across track changes (resetting progress, loading metadata, auto-play behavior)',
-      'Avoiding stale state bugs between UI controls and audio element events',
-      'Designing reusable components without coupling logic to a single layout',
-      'Handling edge cases like track end events, duration loading, and rapid user input',
-    ],
-
-    nextSteps: [
-      'Add keyboard shortcuts (space play/pause, arrows seek/skip) and improved accessibility labels',
-      'Persist player state (last track, volume, position) using localStorage',
-      'Add shuffle/repeat modes and a favorites/playlist system',
-      'Add better loading states and error handling for missing/unavailable tracks',
-      'Add tests around player helpers and critical UI interactions',
-    ],
-
-    stack: {
-      frontend: [
-        'React 19',
-        'TypeScript',
-        'TailwindCSS v4',
-        'Sass',
-        '@coreui/react',
-        'rc-progress',
-        'lucide-react',
-      ],
-      tooling: ['Vite 7', 'ESLint'],
-      hosting: ['Vercel'],
     },
 
     images: [],
