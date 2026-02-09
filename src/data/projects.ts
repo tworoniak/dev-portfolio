@@ -253,6 +253,85 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'saas-dashboard',
+    title: 'AcmeCloud - SaaS Dashboard UI',
+    description:
+      'A modern SaaS-style dashboard UI built with React and TypeScript featuring protected routes, analytics charts, notifications, settings, and dark mode support.',
+    overview:
+      'AcmeCloud is a fake SaaS dashboard project designed to replicate the look and feel of a real startup product. It includes a responsive sidebar layout, authentication flow with protected routes, interactive UI state (notifications, theme preferences), and a dashboard analytics experience powered by Recharts. The goal of this project was to build a polished, portfolio-ready interface that demonstrates real-world frontend architecture and clean UI patterns.',
+
+    tags: [
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'Recharts',
+      'React Router',
+      'UI Architecture',
+      'Dashboard UI',
+      'Dark Mode',
+      'Protected Routes',
+      'Vite',
+    ],
+
+    repoUrl: 'https://github.com/tworoniak/saas-dashboard',
+    liveUrl: 'https://saas-dashboard-rosy.vercel.app',
+
+    role: 'Frontend Engineering',
+    year: 2026,
+
+    highlights: [
+      'Built a full SaaS dashboard layout with sidebar navigation and nested routing',
+      'Implemented fake authentication with protected routes and login redirect behavior',
+      'Created a notifications dropdown system with unread state and UI interactions',
+      'Integrated Recharts to display analytics data in a clean, modern dashboard UI',
+      'Implemented persistent dark mode using Tailwind class-based theming and LocalStorage',
+    ],
+
+    features: [
+      'Authentication flow with fake login/logout and session persistence',
+      'Protected routes that redirect unauthenticated users to the login screen',
+      'Dashboard page with KPI cards and revenue chart visualization',
+      'Settings page with workspace preferences and theme controls',
+      'Notifications dropdown with unread badge and mark-as-read behavior',
+      'Responsive layout optimized for desktop and mobile views',
+    ],
+
+    challenges: [
+      'Structuring the project cleanly with scalable folder architecture (auth, theme, routes, ui)',
+      'Managing persistent state (theme + auth) without overcomplicating the state layer',
+      'Ensuring React Fast Refresh compatibility by separating providers, hooks, and utilities',
+      'Creating a polished UI using Tailwind while keeping components clean and reusable',
+      'Building a realistic dashboard layout experience using nested routing patterns',
+    ],
+
+    nextSteps: [
+      'Add real authentication using Supabase or Firebase',
+      'Add role-based access control (Admin vs User)',
+      'Create additional dashboard pages such as Billing, Team, and Usage Analytics',
+      'Add toast notifications and loading skeleton states',
+      'Add API-driven chart data and a mock backend layer',
+    ],
+
+    stack: {
+      frontend: [
+        'React 19',
+        'TypeScript',
+        'TailwindCSS v4',
+        'React Router',
+        'Recharts',
+      ],
+      tooling: ['Vite', 'ESLint'],
+      hosting: ['Vercel'],
+    },
+
+    images: [
+      // Add screenshot paths here later, example:
+      // '/images/projects/saas-dashboard/dashboard.png',
+      // '/images/projects/saas-dashboard/login.png',
+      // '/images/projects/saas-dashboard/settings.png',
+    ],
+  },
+  {
     slug: 'riff-finder',
     title: 'Riff Finder',
     description:
@@ -354,85 +433,7 @@ export const projects: Project[] = [
 
     images: [],
   },
-  {
-    slug: 'saas-dashboard',
-    title: 'AcmeCloud - SaaS Dashboard UI',
-    description:
-      'A modern SaaS-style dashboard UI built with React and TypeScript featuring protected routes, analytics charts, notifications, settings, and dark mode support.',
-    overview:
-      'AcmeCloud is a fake SaaS dashboard project designed to replicate the look and feel of a real startup product. It includes a responsive sidebar layout, authentication flow with protected routes, interactive UI state (notifications, theme preferences), and a dashboard analytics experience powered by Recharts. The goal of this project was to build a polished, portfolio-ready interface that demonstrates real-world frontend architecture and clean UI patterns.',
 
-    tags: [
-      'React',
-      'TypeScript',
-      'TailwindCSS',
-      'Recharts',
-      'React Router',
-      'UI Architecture',
-      'Dashboard UI',
-      'Dark Mode',
-      'Protected Routes',
-      'Vite',
-    ],
-
-    repoUrl: 'https://github.com/tworoniak/saas-dashboard',
-    liveUrl: 'https://saas-dashboard-rosy.vercel.app',
-
-    role: 'Frontend Engineering',
-    year: 2026,
-
-    highlights: [
-      'Built a full SaaS dashboard layout with sidebar navigation and nested routing',
-      'Implemented fake authentication with protected routes and login redirect behavior',
-      'Created a notifications dropdown system with unread state and UI interactions',
-      'Integrated Recharts to display analytics data in a clean, modern dashboard UI',
-      'Implemented persistent dark mode using Tailwind class-based theming and LocalStorage',
-    ],
-
-    features: [
-      'Authentication flow with fake login/logout and session persistence',
-      'Protected routes that redirect unauthenticated users to the login screen',
-      'Dashboard page with KPI cards and revenue chart visualization',
-      'Settings page with workspace preferences and theme controls',
-      'Notifications dropdown with unread badge and mark-as-read behavior',
-      'Responsive layout optimized for desktop and mobile views',
-    ],
-
-    challenges: [
-      'Structuring the project cleanly with scalable folder architecture (auth, theme, routes, ui)',
-      'Managing persistent state (theme + auth) without overcomplicating the state layer',
-      'Ensuring React Fast Refresh compatibility by separating providers, hooks, and utilities',
-      'Creating a polished UI using Tailwind while keeping components clean and reusable',
-      'Building a realistic dashboard layout experience using nested routing patterns',
-    ],
-
-    nextSteps: [
-      'Add real authentication using Supabase or Firebase',
-      'Add role-based access control (Admin vs User)',
-      'Create additional dashboard pages such as Billing, Team, and Usage Analytics',
-      'Add toast notifications and loading skeleton states',
-      'Add API-driven chart data and a mock backend layer',
-    ],
-
-    stack: {
-      frontend: [
-        'React 19',
-        'TypeScript',
-        'TailwindCSS v4',
-        'React Router',
-        'Recharts',
-      ],
-      tooling: ['Vite', 'ESLint'],
-      hosting: ['Vercel'],
-    },
-
-    images: [
-      // Add screenshot paths here later, example:
-      // '/images/projects/saas-dashboard/dashboard.png',
-      // '/images/projects/saas-dashboard/login.png',
-      // '/images/projects/saas-dashboard/settings.png',
-    ],
-  },
   {
     slug: 'crypto-dash',
     title: 'CryptoDash',
