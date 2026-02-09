@@ -98,7 +98,7 @@ export const projects: Project[] = [
   },
 
   {
-    slug: 'portfolio',
+    slug: 'dev-portfolio',
     title: 'Frontend Developer Portfolio',
     description: 'Neon/cyber portfolio with animated UI + fast routing.',
     tags: [

@@ -42,11 +42,10 @@ export default function Home() {
             custom={1}
             className='mt-4 text-4xl font-semibold tracking-tight sm:text-5xl'
           >
-            I build{' '}
             <span className='bg-linear-to-r from-fuchsia-300 to-cyan-200 bg-clip-text text-transparent'>
-              bold
+              Fast UI.
             </span>{' '}
-            interfaces that feel fast.
+            Real impact.
           </motion.h1>
 
           <motion.p
@@ -120,12 +119,24 @@ export default function Home() {
         <div className='grid gap-4 sm:grid-cols-2'>
           {[
             {
-              title: 'IdeaDrop',
-              desc: 'Capture + organize ideas with a smooth UI.',
+              title: 'Photography Portfolio',
+              desc: 'A photography portfolio using React, React Router, TypeScript, Cloudinary, and TailwindCSS.',
+              route: '/projects/photography-portfolio',
             },
             {
-              title: 'Portfolio',
-              desc: 'Bold, animated site built with Vite + Tailwind.',
+              title: 'Developer Portfolio',
+              desc: 'Neon/cyber portfolio with animated UI + fast routing.',
+              route: '/projects/dev-portfolio',
+            },
+            {
+              title: 'Saas Dashboard UI',
+              desc: 'A modern SaaS-style dashboard UI built with React and TypeScript featuring protected routes, analytics charts, notifications, settings, and dark mode support.',
+              route: '/projects/saas-dashboard',
+            },
+            {
+              title: 'CryptoDash',
+              desc: 'A crypto dashboard that pulls market data from CoinGecko and visualizes trends with Chart.js.',
+              route: '/projects/crypto-dash',
             },
           ].map((p, i) => (
             <motion.div
@@ -138,10 +149,14 @@ export default function Home() {
             >
               <div className='flex items-start justify-between gap-4'>
                 <div>
-                  <div className='text-lg font-semibold'>{p.title}</div>
+                  <Link to={p.route}>
+                    <div className='text-lg font-semibold hover:text-fuchsia-400'>
+                      {p.title}
+                    </div>
+                  </Link>
                   <p className='mt-2 text-sm text-zinc-200/90'>{p.desc}</p>
                 </div>
-                <div className='h-10 w-10 rounded-2xl border border-white/10 bg-linear-to-br from-fuchsia-400/30 to-cyan-300/20' />
+                <div className='h-5 w-5 p-3 rounded-2xl border border-white/10 bg-linear-to-br from-fuchsia-400/30 to-cyan-300/20' />
               </div>
 
               <div className='mt-4 flex flex-wrap gap-2 text-xs text-zinc-300'>

@@ -48,7 +48,7 @@ export default function ProjectCard({ project, onTagClick }: Props) {
             </p>
           </div>
 
-          <div className='h-11 w-11 shrink-0 rounded-2xl border border-white/10 bg-linear-to-br from-fuchsia-500/20 via-cyan-400/15 to-emerald-400/15' />
+          <div className='h-11 w-11 p-5 shrink-0 rounded-full border border-white/10 bg-linear-to-br from-fuchsia-500/20 via-cyan-400/15 to-emerald-400/15' />
         </div>
 
         {/* Tags */}
