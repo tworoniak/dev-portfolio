@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import ScrollToTop from './ScrollToTop';
 
 const navLink =
   'px-3 py-2 rounded-xl text-sm font-medium transition hover:opacity-80';
@@ -24,7 +25,7 @@ export default function Layout() {
         <div className='absolute -top-24 left-1/2 h-80 w-176 -translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl' />
         <div className='absolute top-40 left-1/3 h-72 w-160 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl' />
       </div>
-
+      <ScrollToTop />
       <header className='sticky top-0 z-20 border-b border-faint/30 bg-background/60 backdrop-blur'>
         <div className='mx-auto flex max-w-5xl items-center justify-between px-4 py-3'>
           <NavLink

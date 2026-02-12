@@ -506,7 +506,6 @@ export const projects: Project[] = [
       cldImage('crypto-dash-04_ihplea'),
     ],
   },
-
   {
     slug: 'idea-drop',
     title: 'IdeaDrop',
@@ -592,4 +591,109 @@ export const projects: Project[] = [
 
     images: [],
   },
+  {
+    slug: 'react-weather',
+    title: 'ReactWeather (But Actually Cool)',
+    description:
+      'A modern weather dashboard with geolocation, saved cities, animated weather backgrounds, and daily + hourly forecast charts.',
+    overview:
+      'Weather App (But Actually Cool) is a React + TypeScript weather dashboard built to feel more like a modern product than a basic forecast app. It supports geolocation-based forecasts with fallback handling, saved cities stored locally, and a dynamic animated background system that changes based on current conditions (clear, clouds, rain, snow, fog, thunder). The app also includes daily high/low charts and hourly toggles for temperature, precipitation probability, and wind speed, with a scalable architecture designed for future NWS severe weather alert integration.',
+
+    tags: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'TailwindCSS',
+      'TanStack Query',
+      'Recharts',
+      'Zod',
+      'Geolocation API',
+      'Open-Meteo API',
+    ],
+
+    repoUrl: 'https://github.com/tworoniak/weather-app',
+    liveUrl: 'https://weather-app-snowy-phi.vercel.app',
+
+    role: 'Frontend Engineering + UI Architecture',
+    year: 2026,
+
+    highlights: [
+      'Built a full-page animated weather scene system with condition + day/night mapping.',
+      'Implemented daily high/low forecast charts and hourly chart toggles (temp / precip / wind).',
+      'Created a saved cities system using LocalStorage with same-tab and cross-tab syncing.',
+      'Integrated reverse geocoding to display real city names instead of raw coordinates.',
+      'Designed an alert banner system ready for NWS severe weather API integration.',
+    ],
+
+    features: [
+      'Geolocation-based weather with fallback location support',
+      'Reverse geocoding for readable place names',
+      'Saved cities with LocalStorage persistence',
+      'City detail pages with route-based navigation',
+      'Daily 7-day high/low temperature chart',
+      'Hourly forecast charts with toggles (temperature / precipitation / wind)',
+      'Animated background presets (Clear, Clouds, Rain, Snow, Fog, Thunder)',
+      'Alert banner UI foundation for severe weather warnings',
+    ],
+
+    challenges: [
+      'Designing an animated background system that feels dynamic without impacting performance.',
+      'Structuring API normalization so daily + hourly data can evolve cleanly over time.',
+      'Avoiding React anti-pattern warnings around effects, state updates, and impure rendering.',
+      'Keeping LocalStorage state synchronized across tabs while maintaining clean component state.',
+      'Making charts readable and visually consistent with the app’s dark UI aesthetic.',
+    ],
+
+    nextSteps: [
+      'Integrate real severe weather alerts using the National Weather Service (NWS) API.',
+      'Add settings toggles for Fahrenheit/Celsius and mph/kph.',
+      'Improve city search UX with keyboard navigation and recent searches.',
+      'Add richer hourly visualizations (humidity, UV index, sunrise/sunset markers).',
+      'Enhance weather scenes with Canvas-based particles and smoother motion transitions.',
+    ],
+
+    stack: {
+      frontend: ['React 19', 'TypeScript', 'TailwindCSS', 'Recharts'],
+      backend: ['Open-Meteo API', 'Reverse Geocoding API'],
+      testing: ['(Planned) Vitest', '(Planned) React Testing Library'],
+      tooling: ['Vite', 'ESLint', 'Prettier'],
+      hosting: ['(Planned) Vercel'],
+    },
+
+    images: [],
+  },
+
+  // New project template
+  // {
+  //   slug: 'new-project',
+  //   title: 'NewProject',
+  //   description: 'To be added...',
+  //   overview: 'To be added...',
+
+  //   tags: ['To be added...'],
+
+  //   repoUrl: 'https://github.com/tworoniak/new-project',
+  //   liveUrl: '',
+
+  //   role: 'Design + Full-Stack Engineering',
+  //   year: 2026,
+
+  //   highlights: ['To be added...'],
+
+  //   features: ['To be added...'],
+
+  //   challenges: ['To be added...'],
+
+  //   nextSteps: ['To be added...'],
+
+  //   stack: {
+  //     frontend: ['Tech'],
+  //     backend: ['Tech'],
+  //     testing: ['Tech'],
+  //     tooling: ['Tech'],
+  //     hosting: ['Tech'],
+  //   },
+
+  //   images: [],
+  // },
 ];
