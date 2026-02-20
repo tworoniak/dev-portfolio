@@ -662,6 +662,83 @@ export const projects: Project[] = [
 
     images: [],
   },
+  {
+    slug: 'use-popcorn-v2',
+    title: 'usePopcorn v2.0',
+    description:
+      'A production-style React + TypeScript movie tracking application with advanced UX patterns including animated detail panels, swipe gestures, caching, optimistic updates, and persistent state management.',
+
+    overview:
+      'usePopcorn v2.0 is a fully client-side movie tracking application built with React, TypeScript, and Vite. It integrates with the OMDb API to provide search, detailed movie views, and rating capabilities. The project evolved beyond a simple CRUD demo into a polished SPA featuring debounced search, pagination, mobile overlay panels with swipe-to-close interactions, toast notifications with undo support, localStorage persistence, caching with prefetching, and theme toggling. The architecture emphasizes clean separation of concerns, reusable hooks, and production-level UX polish.',
+
+    tags: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Sass',
+      'SPA',
+      'UX Engineering',
+      'State Management',
+      'API Integration',
+    ],
+
+    repoUrl: 'https://github.com/tworoniak/use-popcorn-v2',
+    liveUrl: 'https://use-popcorn-v2-ruby.vercel.app',
+
+    role: 'Frontend Architecture + UX Engineering',
+    year: 2026,
+
+    highlights: [
+      'Designed a modular hook-based architecture for scalable state management',
+      'Implemented mobile-first animated detail panel with swipe-to-close gesture support',
+      'Built client-side caching + prefetching system for perceived performance improvements',
+      'Developed toast notification system with undo support for destructive actions',
+      'Added debounced search with stale-result indicators',
+      'Integrated dark/light theme toggle with persistent state',
+    ],
+
+    features: [
+      'Debounced movie search (400ms) with stale-results indicator',
+      'Pagination with disabled states and scroll reset',
+      'Animated slide-in details panel (desktop + mobile overlay)',
+      'Swipe-to-close with live drag animation on mobile',
+      'Custom StarRating component (controlled/uncontrolled modes)',
+      'Watched list with sorting, filtering, and title search',
+      'Undo delete via toast action',
+      'Poster fallback handling for missing images',
+      'Offline detection banner with retry handling',
+      'Persistent state using localStorage',
+      'Theme toggle (dark/light) with persistence',
+    ],
+
+    challenges: [
+      'Managing animation timing with mounted state while preventing accessibility conflicts',
+      'Avoiding React 19 warnings related to setState inside effects',
+      'Preventing infinite 404 image retry loops for missing posters',
+      'Coordinating global UI state (modal scroll lock, document title, focus restoration)',
+      'Designing swipe gesture handling without breaking vertical scrolling',
+      'Ensuring stable keys and preventing unnecessary re-renders',
+    ],
+
+    nextSteps: [
+      'URL state synchronization for shareable deep links',
+      'Back/forward navigation support via history API',
+      'Keyboard navigation for search results',
+      'Virtualized watched list for large datasets',
+      'Unit testing with Vitest + React Testing Library',
+      'Deployment pipeline (Vercel/Netlify)',
+    ],
+
+    stack: {
+      frontend: ['React', 'TypeScript', 'Vite', 'Sass (SCSS)'],
+      backend: ['OMDb API (3rd-party REST API)'],
+      testing: [],
+      tooling: ['ESLint', 'Prettier'],
+      hosting: [],
+    },
+
+    images: [],
+  },
 
   // New project template
   // {
